@@ -315,11 +315,10 @@ xpmem_debug_printk_procfs_open(struct inode *inode, struct file *file)
 	return single_open(file, xpmem_debug_printk_procfs_show, NULL);
 }
 
-struct file_operations xpmem_debug_printk_procfs_ops = {
-	.owner		= THIS_MODULE,
-	.llseek		= seq_lseek,
-	.read		= seq_read,
-	.write		= xpmem_debug_printk_procfs_write,
-	.open		= xpmem_debug_printk_procfs_open,
-	.release	= single_release,
+struct proc_ops xpmem_debug_printk_procfs_ops = {
+	.proc_lseek		= seq_lseek,
+	.proc_read		= seq_read,
+	.proc_write		= xpmem_debug_printk_procfs_write,
+	.proc_open		= xpmem_debug_printk_procfs_open,
+	.proc_release	= single_release,
 };

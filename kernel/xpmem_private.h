@@ -296,7 +296,7 @@ extern int xpmem_fork_end(void);
 #define XPMEM_TGID_STRING_LEN	11
 extern spinlock_t xpmem_unpin_procfs_lock;
 extern struct proc_dir_entry *xpmem_unpin_procfs_dir;
-extern struct file_operations xpmem_unpin_procfs_ops;
+extern struct proc_ops xpmem_unpin_procfs_ops;
 
 /* found in xpmem_main.c */
 extern struct xpmem_partition *xpmem_my_part;
@@ -339,7 +339,7 @@ extern int xpmem_seg_down_read(struct xpmem_thread_group *,
 			       struct xpmem_segment *, int, int);
 extern int xpmem_validate_access(struct xpmem_access_permit *, off_t, size_t,
 				 int, u64 *);
-extern struct file_operations xpmem_debug_printk_procfs_ops;
+extern struct proc_ops xpmem_debug_printk_procfs_ops;
 /* found in xpmem_mmu_notifier.c */
 extern int xpmem_mmu_notifier_init(struct xpmem_thread_group *);
 extern void xpmem_mmu_notifier_unlink(struct xpmem_thread_group *);
